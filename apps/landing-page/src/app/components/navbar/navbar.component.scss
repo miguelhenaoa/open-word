@@ -56,3 +56,9 @@ a:hover::after,
 a:hover::before {
   width: 100%;
 }
+
+@media screen and (max-width: 768px) {
+  .links {
+    display: none;
+  }
+}
