@@ -1,0 +1,58 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  height: 100px;
+  margin: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.logo {
+  padding-left: 20px;
+}
+
+.links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+a {
+  position: relative;
+  text-decoration: none;
+  color: #222;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+a::before,
+a::after {
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 0;
+  background: #ecbd0e;
+  transition: 0.5s;
+}
+
+a::after {
+  left: 0;
+  bottom: -10px;
+}
+
+a::before {
+  right: 0;
+  top: -10px;
+}
+
+a:hover::after,
+a:hover::before {
+  width: 100%;
+}
