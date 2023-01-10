@@ -23,6 +23,52 @@ main {
   }
 }
 
+.payments-component {
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+
+  .title {
+    font-size: 32px;
+  }
+
+  .payments {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    margin-top: 10px;
+
+    > div {
+      width: 100%;
+      min-width: 200px;
+      max-width: 200px;
+      height: 200px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 17px #00000059;
+      }
+
+      > img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.divider {
+  width: auto;
+  height: 1px;
+  background-color: #38b6ff;
+  margin: 20px 0;
+}
+
 @media screen and (max-width: 768px) {
   .home-component {
     > div {

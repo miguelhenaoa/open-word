@@ -12,4 +12,15 @@
       />
     </div>
   </section>
+  <div class="divider"></div>
+  <section #payments  class="wrapper payments-component">
+    <div class="title">
+      <span>Nuestras pasarelas de pago</span>
+    </div>
+    <div class="payments">
+      <div *ngFor="let payment of paymentList">
+        <img [src]="payment.img" [alt]="payment.alt">
+      </div>
+    </div>
+  </section>
 </main>
