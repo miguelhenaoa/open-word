@@ -1,6 +1,9 @@
 main {
   margin-top: 100px;
-  padding: 20px;
+}
+
+.brand {
+  color: #ecbd0e;
 }
 
 .home-component {
@@ -16,10 +19,6 @@ main {
   .title {
     font-size: 72px;
     text-align: left;
-
-    .brand {
-      color: #ecbd0e;
-    }
   }
 }
 
@@ -62,6 +61,101 @@ main {
   }
 }
 
+.request-component-container {
+  background-color: #f7fcff;
+  padding: 20px;
+}
+
+.request-component {
+  .content {
+    .title {
+      font-size: 42px;
+    }
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+
+    > div {
+      width: 100%;
+      flex-grow: 1;
+    }
+
+    .steps {
+      text-align: center;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+
+      .step {
+        width: 400px;
+        height: 50px;
+        background-color: #fff;
+        border: 2px solid #edf0f2;
+        border-radius: 10px;
+        padding: 10px;
+        transition: 0.3s;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        gap: 10px;
+
+        .text {
+          text-align: left;
+          padding-left: 5px;
+
+          > p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0.2px;
+          }
+
+          > p:first-child {
+            margin-bottom: 5px;
+            font-weight: 600;
+          }
+
+          > p:last-child {
+            color: #889298;
+          }
+        }
+
+        .icon {
+          text-align: center;
+
+          > div {
+            background-color: #f7f7f7;
+            width: 50px;
+            height: 50px;
+            border-radius: 1000px;
+            margin: 0 auto;
+
+            > .mat-icon {
+              margin: 13px;
+              color: rgb(107, 120, 128);
+            }
+          }
+        }
+
+        &:hover {
+          border: 2px solid #38b6ff;
+          cursor: pointer;
+        }
+      }
+
+      .line {
+        width: 2px;
+        height: 50px;
+        background-color: #38b6ff;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
 .divider {
   width: auto;
   height: 1px;
@@ -70,7 +164,14 @@ main {
 }
 
 @media screen and (max-width: 768px) {
+  .wrapper {
+    max-width: unset;
+    padding-left: unset;
+    padding-right: unset;
+  }
+
   .home-component {
+    justify-content: center;
     > div {
       width: 300px;
       text-align: center;
@@ -80,4 +181,31 @@ main {
       font-size: 48px;
     }
   }
+
+  .request-component {
+    .content {
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .title {
+        text-align: center;
+        font-size: 32px;
+      }
+
+      .steps {
+        margin: 0 auto;
+
+        > div {
+          justify-content: unset;
+        }
+        .step {
+          max-width: 300px;
+        }
+      }
+    }
+  }
+}
+
+p {
+  margin: 0;
 }
