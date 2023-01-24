@@ -1,11 +1,11 @@
 <section #register class="register-form">
   <h2>Solicita tu <span>crédito</span></h2>
-  <form [formGroup]="resgisterForm" (ngSubmit)="submitForm()">
+  <form #login="ngForm" [formGroup]="resgisterForm" (ngSubmit)="submitForm()">
     <mat-form-field class="w-100 mb-10" appearance="fill">
       <mat-label>Cédula</mat-label>
       <input matInput type="number" formControlName="id" />
       <mat-error *ngIf="invalidInput('id')">
-        La cédula no debe contener puntos, sólo números.
+        La cédula sólo debe contener números
       </mat-error>
     </mat-form-field>
     <mat-form-field class="w-100 mb-10" appearance="fill">

@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -17,10 +18,12 @@ const routes: Routes = [{ path: '', component: RegisterComponent }];
   declarations: [RegisterComponent, DialogComponent],
   imports: [
     CommonModule,
+    FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     MatButtonModule,
     MatDialogModule,
+    MatFormFieldModule,
     MatIconModule,
     MatInputModule,
     MatSelectModule,

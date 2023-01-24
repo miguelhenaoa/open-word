@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { cities } from './cities';
 
@@ -11,9 +11,15 @@ import { DialogComponent } from './components/dialog/dialog.component';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
+  @ViewChild('login') private _loginNgForm!: NgForm;
+  cities: string[] = cities;
+  fees = Array.from({ length: 36 }, (_, i) => i + 1);
   resgisterForm: FormGroup = this.fb.group({
     address: ['', [Validators.required]],
-    amountToLend: ['', [Validators.required, Validators.min(0)]],
+    amountToLend: [
+      '',
+      [Validators.required, Validators.min(0), Validators.pattern(/\d/)],
+    ],
     cellphoneNumber: [
       '',
       [Validators.required, Validators.pattern('[0-9]{9}')],
@@ -29,9 +35,6 @@ export class RegisterComponent {
     postalCode: ['', [Validators.required, Validators.pattern('[0-9]{5,8}')]],
     workAddress: [''],
   });
-  cities: string[] = cities;
-  fees = Array.from({ length: 36 }, (_, i) => i + 1);
-  errorState = false;
 
   constructor(private fb: FormBuilder, public dialog: MatDialog) {}
 
@@ -49,6 +52,7 @@ export class RegisterComponent {
       return;
     }
     this.resgisterForm.reset();
+    this._loginNgForm.resetForm();
     this.dialog.open(DialogComponent);
   }
 }
