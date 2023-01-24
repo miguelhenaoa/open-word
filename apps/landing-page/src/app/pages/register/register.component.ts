@@ -27,7 +27,7 @@ export class RegisterComponent {
     photoId: ['', [Validators.required]],
     photoPublicService: ['', [Validators.required]],
     postalCode: ['', [Validators.required, Validators.pattern('[0-9]{5,8}')]],
-    workAddress: ['', [Validators.required]],
+    workAddress: [''],
   });
   cities: string[] = cities;
   fees = Array.from({ length: 36 }, (_, i) => i + 1);
