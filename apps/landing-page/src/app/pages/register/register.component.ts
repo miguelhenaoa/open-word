@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { cities } from './cities';
+
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @Component({
   selector: 'ow-register',
@@ -30,7 +33,7 @@ export class RegisterComponent {
   fees = Array.from({ length: 36 }, (_, i) => i + 1);
   errorState = false;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, public dialog: MatDialog) {}
 
   /* metodo para mostrar mensaje de error en los input */
   invalidInput(campo: string) {
@@ -45,7 +48,7 @@ export class RegisterComponent {
       this.resgisterForm.markAllAsTouched();
       return;
     }
-    console.log(this.resgisterForm.value.id);
     this.resgisterForm.reset();
+    this.dialog.open(DialogComponent);
   }
 }

@@ -1,5 +1,9 @@
 h2 {
   font-size: 32px;
+
+  > span {
+    color: #ecbd0e;
+  }
 }
 
 form {
