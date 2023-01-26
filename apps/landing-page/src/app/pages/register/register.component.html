@@ -1,6 +1,6 @@
 <section #register class="register-form">
   <h2>Solicita tu <span>crédito</span></h2>
-  <form #login="ngForm" [formGroup]="resgisterForm" (ngSubmit)="submitForm()">
+  <form #login="ngForm" [formGroup]="registerForm" (ngSubmit)="submitForm()">
     <mat-form-field class="w-100 mb-10" appearance="fill">
       <mat-label>Cédula</mat-label>
       <input matInput type="number" formControlName="id" />
@@ -88,25 +88,29 @@
     </mat-form-field>
     <div class="upload-files">
       <label>
-        Foto de la cédula
-        <div class="icon">
-          <div>
-            <mat-icon>photo</mat-icon>
+        <div class="flex">
+          <div class="icon">
+            <div>
+              <mat-icon>photo</mat-icon>
+            </div>
           </div>
+          <span>Foto de la cédula</span>
+          <input type="file" formControlName="photoId" class="pointer" />
         </div>
-        <input type="file" formControlName="photoId" class="pointer" />
         <mat-error class="error" *ngIf="invalidInput('photoId')">
           Adjunte foto de la cédula
         </mat-error>
       </label>
       <label>
-        Foto de recibo de servicio público
-        <div class="icon">
-          <div>
-            <mat-icon>photo</mat-icon>
+        <div class="flex">
+          <div class="icon">
+            <div>
+              <mat-icon>photo</mat-icon>
+            </div>
           </div>
+          <span>Foto de recibo de servicio público</span>
+          <input type="file" formControlName="photoPublicService" />
         </div>
-        <input type="file" formControlName="photoPublicService" />
         <mat-error class="error" *ngIf="invalidInput('photoPublicService')">
           Adjunte foto de un servicio público
         </mat-error>
