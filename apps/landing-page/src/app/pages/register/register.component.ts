@@ -1,9 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { cities } from './cities';
+import Swal from 'sweetalert2';
 
-import { DialogComponent } from './components/dialog/dialog.component';
+import { cities } from './cities';
 
 @Component({
   selector: 'ow-register',
@@ -14,7 +15,7 @@ export class RegisterComponent {
   @ViewChild('login') private _loginNgForm!: NgForm;
   cities: string[] = cities;
   fees = Array.from({ length: 36 }, (_, i) => i + 1);
-  resgisterForm: FormGroup = this.fb.group({
+  registerForm: FormGroup = this.fb.group({
     address: ['', [Validators.required]],
     amountToLend: [
       '',
@@ -36,23 +37,34 @@ export class RegisterComponent {
     workAddress: [''],
   });
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    public dialog: MatDialog
+  ) {}
 
   /* metodo para mostrar mensaje de error en los input */
   invalidInput(campo: string) {
     return (
-      this.resgisterForm.controls[campo].errors &&
-      this.resgisterForm.controls[campo].touched
+      this.registerForm.controls[campo].errors &&
+      this.registerForm.controls[campo].touched
     );
   }
 
   submitForm() {
-    if (this.resgisterForm.invalid) {
-      this.resgisterForm.markAllAsTouched();
+    if (this.registerForm.invalid) {
+      this.registerForm.markAllAsTouched();
       return;
     }
-    this.resgisterForm.reset();
+    this.registerForm.reset();
     this._loginNgForm.resetForm();
-    this.dialog.open(DialogComponent);
+    Swal.fire({
+      title: 'Enviado con éxito!',
+      text: 'Gracias por escogernos para cumplir tus metas, pronto nos pondremos en contacto contigo.',
+      icon: 'success',
+      confirmButtonText: 'Cerrar',
+    }).then(() => {
+      this.router.navigate(['/']);
+    });
   }
 }
