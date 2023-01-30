@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 
 import { cities } from './cities';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'ow-register',
@@ -40,8 +41,11 @@ export class RegisterComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    public dialog: MatDialog
-  ) {}
+    public dialog: MatDialog,
+    private readonly titleService: Title
+  ) {
+    this.titleService.setTitle('Open Word | Regístrate');
+  }
 
   /* metodo para mostrar mensaje de error en los input */
   invalidInput(campo: string) {

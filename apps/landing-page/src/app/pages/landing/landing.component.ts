@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'ow-landing',
@@ -6,6 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent {
+  constructor(private readonly titleService: Title) {
+    this.titleService.setTitle('Open Word | Inicio');
+  }
+
   paymentList = [
     { img: 'assets/images/logo-dlocal.jpg', alt: 'dLocal' },
     { img: 'assets/images/paymentez.jpg', alt: 'Paymentez' },

@@ -9,6 +9,15 @@ export const routes: Route[] = [
   {
     path: 'register',
     loadChildren: () =>
-      import('../../pages/register/register.module').then((m) => m.RegisterModule),
+      import('../../pages/register/register.module').then(
+        (m) => m.RegisterModule
+      ),
+  },
+  {
+    path: 'about-us',
+    loadComponent: () =>
+      import('../../pages/about-us/about-us.component').then(
+        (m) => m.AboutUsComponent
+      ),
   },
 ];
