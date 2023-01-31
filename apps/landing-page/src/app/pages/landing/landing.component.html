@@ -68,6 +68,7 @@
     <div class="payments">
       <div *ngFor="let payment of paymentList">
         <img [src]="payment.img" [alt]="payment.alt" />
+        {{ payment.alt }}
       </div>
     </div>
   </section>
