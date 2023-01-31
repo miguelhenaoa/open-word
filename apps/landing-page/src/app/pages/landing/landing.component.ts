@@ -11,10 +11,5 @@ export class LandingComponent {
     this.titleService.setTitle('Open Word | Inicio');
   }
 
-  paymentList = [
-    { img: 'assets/images/logo-dlocal.jpg', alt: 'dLocal' },
-    { img: 'assets/images/paymentez.jpg', alt: 'Paymentez' },
-    { img: 'assets/images/paypal.png', alt: 'PayPal' },
-    { img: 'assets/images/totalnet.jpg', alt: 'TotalNet' },
-  ];
+  paymentList = [{ img: 'assets/images/miredpagos.png', alt: 'MiRedPagos' }];
 }
