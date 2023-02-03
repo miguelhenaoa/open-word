@@ -20,4 +20,23 @@ export const routes: Route[] = [
         (m) => m.AboutUsComponent
       ),
   },
+  {
+    path: 'faq',
+    loadComponent: () =>
+      import('../../pages/faq/faq.component').then((m) => m.FaqComponent),
+  },
+  {
+    path: 'e-billing',
+    loadComponent: () =>
+      import('../../pages/e-billing/e-billing.component').then(
+        (m) => m.EBillingComponent
+      ),
+  },
+  {
+    path: 'financial-statements',
+    loadComponent: () =>
+      import(
+        '../../pages/financial-statements/financial-statements.component'
+      ).then((m) => m.FinancialStatementsComponent),
+  },
 ];
