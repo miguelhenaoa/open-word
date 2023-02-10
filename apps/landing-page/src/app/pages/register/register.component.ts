@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ReCaptchaV3Service } from 'ng-recaptcha';
 import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 
@@ -35,6 +36,8 @@ export class RegisterComponent {
     photoId: ['', [Validators.required]],
     photoPublicService: ['', [Validators.required]],
     postalCode: ['', [Validators.required, Validators.pattern('[0-9]{5,8}')]],
+    recaptcha: ['', [Validators.required]],
+    termsAndConditions: [false, [Validators.requiredTrue]],
     workAddress: [''],
   });
 
@@ -42,7 +45,8 @@ export class RegisterComponent {
     private fb: FormBuilder,
     private router: Router,
     public dialog: MatDialog,
-    private readonly titleService: Title
+    private readonly titleService: Title,
+    private recaptchaV3Service: ReCaptchaV3Service
   ) {
     this.titleService.setTitle('Open Word | Regístrate');
   }
@@ -55,20 +59,25 @@ export class RegisterComponent {
     );
   }
 
-  submitForm() {
-    if (this.registerForm.invalid) {
-      this.registerForm.markAllAsTouched();
-      return;
-    }
-    this.registerForm.reset();
-    this._loginNgForm.resetForm();
-    Swal.fire({
-      title: 'Enviado con éxito!',
-      text: 'Gracias por escogernos para cumplir tus metas, pronto nos pondremos en contacto contigo.',
-      icon: 'success',
-      confirmButtonText: 'Cerrar',
-    }).then(() => {
-      this.router.navigate(['/']);
-    });
+  async submitForm() {
+    this.recaptchaV3Service
+      .execute('importantAction')
+      .subscribe((token: string) => {
+        this.registerForm.get('recaptcha')?.setValue(token || '');
+        if (this.registerForm.invalid) {
+          this.registerForm.markAllAsTouched();
+          return;
+        }
+        this.registerForm.reset();
+        this._loginNgForm.resetForm();
+        Swal.fire({
+          title: 'Enviado con éxito!',
+          text: 'Gracias por escogernos para cumplir tus metas, pronto nos pondremos en contacto contigo.',
+          icon: 'success',
+          confirmButtonText: 'Cerrar',
+        }).then(() => {
+          this.router.navigate(['/']);
+        });
+      });
   }
 }
