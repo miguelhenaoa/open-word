@@ -1,0 +1,75 @@
+<main>
+  <section #home class="wrapper home-component">
+    <div class="title">
+      <span>Bienvenido a tu aliado, <span class="brand">OpenWord</span></span>
+    </div>
+    <div class="image">
+      <img
+        class="img-responsive"
+        src="assets/images/home.png"
+        alt="Home image"
+      />
+    </div>
+  </section>
+  <div class="request-component-container">
+    <section #request class="wrapper request-component">
+      <div class="content">
+        <div class="title">
+          <span>Solicita <span class="brand">fácilmente</span> un crédito con nosotros</span>
+        </div>
+        <div class="steps">
+          <div>
+            <div class="step">
+              <div class="icon">
+                <div>
+                  <mat-icon>edit</mat-icon>
+                </div>
+              </div>
+              <div class="text">
+                <p>Inscripción</p>
+                <p>Llena nuestro formulario</p>
+              </div>
+            </div>
+            <div class="line"></div>
+            <div class="step">
+              <div class="icon">
+                <div>
+                  <mat-icon>support_agent</mat-icon>
+                </div>
+              </div>
+              <div class="text">
+                <p>Revisión</p>
+                <p>Tu solicitud será revisada por un asesor</p>
+              </div>
+            </div>
+            <div class="line"></div>
+            <div class="step">
+              <div class="icon">
+                <div>
+                  <mat-icon>check_circle</mat-icon>
+                </div>
+              </div>
+              <div class="text">
+                <p>Respuesta</p>
+                <p>Recibirás una respuesta en menos de 24 horas</p>
+              </div>
+            </div>
+            <div class="line"></div>
+            <a routerLink="register" class="button" color="accent" mat-raised-button>Obtén tu dinero</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <section #payments class="wrapper payments-component">
+    <div class="title">
+      <span>Nuestras pasarelas de pago</span>
+    </div>
+    <div class="payments">
+      <div *ngFor="let payment of paymentList">
+        <img [src]="payment.img" [alt]="payment.alt" />
+        {{ payment.alt }}
+      </div>
+    </div>
+  </section>
+</main>
