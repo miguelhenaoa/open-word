@@ -4,6 +4,9 @@
 
 export const environment = {
   production: false,
+  recaptcha: {
+    siteKey: '6LdLrmMkAAAAAKdz1V0eQkPa_B44kCyvkhGmC5qX',
+  },
 };
 
 /*
