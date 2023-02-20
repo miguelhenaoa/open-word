@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ErrorMessageService } from '@utils/services';
 
 import { LoginComponent } from './login.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -29,6 +30,6 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [LoginService],
+  providers: [LoginService, ErrorMessageService],
 })
 export class LoginModule {}
