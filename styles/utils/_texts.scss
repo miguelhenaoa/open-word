@@ -1,0 +1,39 @@
+@import '../mixins/text';
+
+h1 {
+  @include text-super-title;
+}
+
+h2 {
+  @include text-title;
+}
+
+h3 {
+  @include text-subtitle;
+}
+
+h4 {
+  @include text-title-modal;
+}
+
+h5 {
+  @include text-subtitle-sm;
+}
+
+h6 {
+  @include text-title-table-card;
+}
+
+p,
+span,
+a,
+li,
+td,
+th,
+label,
+input,
+textarea,
+select,
+.text-normal {
+  @include text-normal;
+}
