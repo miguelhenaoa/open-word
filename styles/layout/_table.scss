@@ -1,0 +1,28 @@
+.custom-table {
+  border-radius: 5px 5px 0 0;
+  overflow: hidden !important;
+  width: 100%;
+
+  thead {
+    tr {
+      height: 40px;
+      background-color: #0d95d2;
+
+      th {
+        color: white !important;
+        font-size: 14px;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      height: 40px;
+      background-color: #f5f8fa;
+    }
+  }
+}
+
+.mat-column-actions {
+  width: 80px;
+}
